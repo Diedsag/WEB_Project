@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{user.name}}</h1>
+<h2>Доступные компании</h2>
+<ul>
+{% for c in companies %}
+<li><b>{{c.name}}</b></li>
+{% endfor %}
+</ul>
+<p></p>
+<p>
+    <a class="btn btn-warning" href="/register_company">Зарегистрировать компанию</a>
+    <a class="btn btn-danger" href="/login_company">Получить доступ к компании</a>
+</p>
+<a class="btn btn-info" href="/edit_user/{{user.id}}">Изменить данные аккаунта</a>
+<a class="btn btn-dark" href="/logout">Выйти из аккаунта</a>
+{% endblock %}

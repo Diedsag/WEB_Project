@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% for item in users %}
+<div class="col-md6 border rounded">
+    <h2>{{item.name}}</h2>
+    <div>
+        {{item.sex}}
+    </div>
+    <div>
+        {{item.email}}
+    </div>
+    <div>
+         День рождения - {{item.birthday.strftime("%A %d %B %Y")}}
+    </div>
+    {% if companies[loop.index0] %}
+    <div>
+        Компании - {{companies[loop.index0]}}
+    </div>
+    {% endif %}
+</div>
+{% endfor %}
+{{message}}
+{% endblock %}

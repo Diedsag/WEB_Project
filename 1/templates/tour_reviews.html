@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% for item in reviews%}
+<div class="col-md6 border rounded">
+    <h3>{{item.user.name}}</h3>
+    <div>
+        <a href="/tours/{{ item.tour.id }}">{{item.tour.title}}</a>
+    </div>
+    <div>
+        Оценка - {{item.grade}}
+    </div>
+        <b>Комментарий:</b>
+    <div>
+        {{ item.comment }}
+    </div>
+    {% if current_user.is_authenticated and current_user.id == item.user.id%}
+    <div>
+        <a href="/edit_review/{{ item.id }}" class="btn btn-info">
+            Изменить отзыв
+        </a>
+    </div>
+    <div>
+        <a href="/delete_review/{{ item.id }}" class="btn btn-danger">
+            Удалить отзыв
+        </a>
+    </div>
+    {% endif %}
+</div>
+{% endfor %}
+{% if current_user.is_authenticated and current_user.name in people%}
+    <div>
+        <a href="/add_review/tour/{{ tour.id }}" class="btn btn-warning">
+            Написать отзыв
+        </a>
+    </div>
+    {% endif %}
+{% endblock %}

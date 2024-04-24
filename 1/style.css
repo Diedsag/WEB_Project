@@ -1,0 +1,83 @@
+li {
+  font-family: "Century Gothic";
+  font-size: 22px;
+}
+a {
+  color: rgba(253, 240, 1, 0.93);
+  text-decoration: none;
+}
+h1 {
+  font-family: "Century Gothic";
+  font-size: 40px;
+  color: rgba(253, 240, 1, 0.93);
+
+}
+h2 {
+  font-family: "Century Gothic";
+  font-size: 27px;
+  color: rgba(253, 240, 1, 0.93);
+}
+p {
+  font-family: "Century Gothic";
+  font-size: 25px;
+  color: white;
+}
+li {
+  font-family: "Century Gothic";
+  font-size: 25px;
+  color: white;
+}
+label {
+  font-family: "Century Gothic";
+  font-size: 25px;
+  color: white;
+}
+option {
+  font-family: "Century Gothic";
+  font-size: 25px;
+  color: black;
+}
+select {
+  font-family: "Century Gothic";
+  font-size: 25px;
+  color: black;
+}
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+span {
+  font-family: "Century Gothic";
+  font-size: 30px;
+  margin: 1em 1em;
+}
+.CCC {
+  background-color: rgb(102, 140, 140);
+  border-radius: 4.5em;
+  padding: 2em;
+  margin: 15px;
+}
+.CCCC {
+  background-color: rgb(102, 140, 140);
+  border-radius: 2.5em;
+  padding: 2em;
+  margin: 15px;
+  max-width: 450px;
+}
+figure {
+  text-align: center;
+}
+img {
+  background-color: rgba(253, 240, 1, 0.93);
+  border-radius: 2.5em;
+  padding: 6px;
+  margin: 15px;
+}
+#wraper {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding: 12em 0 0 0;
+  margin: 15px;
+}

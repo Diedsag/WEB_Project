@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if current_user.is_authenticated and acc%}
+<div><a href="/add_tour" class="btn btn-warning">Добавить тур</a></div>
+{% endif %}
+
+{% for item in tours %}
+<div class="col-md6 border rounded">
+    <h2>{{item.title}}</h2>
+    {% if current_user.is_authenticated and item.company.id|string in current_user.access_company.split()%}
+    <div>
+        <a href="/edit_tour/{{ item.id }}" class="btn btn-success">
+            Изменить тур
+        </a>
+    </div>
+    <div>
+        <a href="/delete_tour/{{ item.id }}" class="btn btn-danger">
+            Удалить тур
+        </a>
+    </div>
+    {% endif %}
+    <div>
+        {{item.place}}
+    </div>
+    <div>
+        Организатор - {{item.company.name}}
+    </div>
+    <div>
+        Участники - {{people[loop.index0]}}
+    </div>
+    <div>
+        Даты - {{item.first_day.strftime("%A %d %B %Y")}}  -- {{item.last_day.strftime("%A %d %B %Y")}}
+    </div>
+    <div>
+        <a href="/reviews/tour/{{ item.id }}" class="btn btn-warning">
+            Отзывы
+        </a>
+    </div>
+</div>
+{% endfor %}
+{{message}}
+{% endblock %}

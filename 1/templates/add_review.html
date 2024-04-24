@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{title}}</h1>
+    <form action="" method="post">
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.tour_name.label }}<br>
+        {{ form.tour_name(class="form-control") }}<br>
+        {% for error in form.tour_name.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>
+        <p>
+        {{ form.grade.label }}<br>
+        {{ form.grade(class="form-control") }}<br>
+        {% for error in form.grade.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+      <p>
+        {{ form.comment.label }}<br>
+        {{ form.comment(class="form-control") }}<br>
+        {% for error in form.comment.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+    {{message}}
+</form>
+{% endblock %}
