@@ -312,9 +312,9 @@ def add_review():
         user = flask_login.current_user
         tour = db_sess.query(Tour).filter(Tour.title == form.tour_name.data).first()
         if not tour:
-            return render_template('add_review.html', title='Добавление отзыва', form=form, message='Такого тура нет')
+            return render_template('add_review.html', title='Добавление отзыва', form=form, message='Такого тура нет', img=url_for("static", filename=image))
         if str(user.id) not in tour.people.split(','):
-            return render_template('add_review.html', title='Добавление отзыва', form=form, message='Вы не были в этом туре')
+            return render_template('add_review.html', title='Добавление отзыва', form=form, message='Вы не были в этом туре', img=url_for("static", filename=image))
         review = Review(user_id=user.id, tour_id=tour.id, grade=form.grade.data, comment=form.comment.data)
         db_sess.add(review)
         db_sess.commit()
