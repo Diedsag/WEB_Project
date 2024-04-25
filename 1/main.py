@@ -41,7 +41,8 @@ def reqister():
         user.set_password(form.password.data)
         db_sess.add(user)
         db_sess.commit()
-        form.image.data.save(f"static/img/i_{user.id}.jpg")
+        if form.image.data:
+            form.image.data.save(f"static/img/i_{user.id}.jpg")
         return redirect('/login')
     return render_template('register.html', title='Регистрация', form=form, img=url_for("static", filename=image))
 
